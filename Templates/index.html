@@ -1,4 +1,326 @@
-{%extends 'basic.html'%}
-{%block p%}
-Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolores nulla consequuntur debitis reprehenderit ipsam animi fugit quisquam quis! Commodi provident accusamus eaque placeat voluptas esse voluptatibus ullam facere totam laborum?
-{%endblock%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Website using HTML,CSS & Bootstrap </title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">  
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="{{url_for ('static',filename='style.css')}}">
+
+</head>
+<body>
+  <!-- Header -->
+<div class="container-fluid">
+    <div class="row">
+            <div class="col-md-3">
+              <a href="#"><img src="{{url_for('static',filename='images/carlogo.svg')}}" alt="CarFirst" id="logo"></a>
+            </div>
+            <div id="nav" class="col-md-4">
+              <ul>
+                <li><a href="#">About us</a></li>
+                <li><a href="#">Location</a></li>
+              </ul>
+            </div>
+            <div class="col-md-5" id="nav-right">
+                <ul>
+                  <li><a href="#">Contact
+                    <svg class="toggle-button" width="3em" height="1.5em" viewBox="0 0 16 16" class="bi bi-list" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                      <path fill-rule="evenodd" d="M2.5 11.5A.5.5 0 0 1 3 11h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 7h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 3h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
+                    </svg>
+                  </a></li>
+                  <li><a href="#">English
+                        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-chevron-down" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                          <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/>
+                        </svg>
+                  </a>
+                      <ul>
+                        <li><a href="#">English</a></li>
+                        <li><a href="#">Urdu</a></li>
+                      </ul>
+                  </li>
+                </ul>
+                <svg class="globe" width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-globe" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm7.5-6.923c-.67.204-1.335.82-1.887 1.855A7.97 7.97 0 0 0 5.145 4H7.5V1.077zM4.09 4H2.255a7.025 7.025 0 0 1 3.072-2.472 6.7 6.7 0 0 0-.597.933c-.247.464-.462.98-.64 1.539zm-.582 3.5h-2.49c.062-.89.291-1.733.656-2.5H3.82a13.652 13.652 0 0 0-.312 2.5zM4.847 5H7.5v2.5H4.51A12.5 12.5 0 0 1 4.846 5zM8.5 5v2.5h2.99a12.495 12.495 0 0 0-.337-2.5H8.5zM4.51 8.5H7.5V11H4.847a12.5 12.5 0 0 1-.338-2.5zm3.99 0V11h2.653c.187-.765.306-1.608.338-2.5H8.5zM5.145 12H7.5v2.923c-.67-.204-1.335-.82-1.887-1.855A7.97 7.97 0 0 1 5.145 12zm.182 2.472a6.696 6.696 0 0 1-.597-.933A9.268 9.268 0 0 1 4.09 12H2.255a7.024 7.024 0 0 0 3.072 2.472zM3.82 11H1.674a6.958 6.958 0 0 1-.656-2.5h2.49c.03.877.138 1.718.312 2.5zm6.853 3.472A7.024 7.024 0 0 0 13.745 12H11.91a9.27 9.27 0 0 1-.64 1.539 6.688 6.688 0 0 1-.597.933zM8.5 12h2.355a7.967 7.967 0 0 1-.468 1.068c-.552 1.035-1.218 1.65-1.887 1.855V12zm3.68-1h2.146c.365-.767.594-1.61.656-2.5h-2.49a13.65 13.65 0 0 1-.312 2.5zm2.802-3.5h-2.49A13.65 13.65 0 0 0 12.18 5h2.146c.365.767.594 1.61.656 2.5zM11.27 2.461c.247.464.462.98.64 1.539h1.835a7.024 7.024 0 0 0-3.072-2.472c.218.284.418.598.597.933zM10.855 4H8.5V1.077c.67.204 1.335.82 1.887 1.855.173.324.33.682.468 1.068z"/>
+                </svg>
+            </div>
+          
+   </div>
+</div>
+<!-- Background Image -->
+<div class="container-fluid background-image">
+  <div class="col-md-12 watermark">
+    <div class="row">
+            <div class="col-md-7 ">
+              <h1 class="sidebar"><b>Selling, buying and exchanging your car has never been this easy</b></h1>
+              <svg class="checkmark" width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-check-circle-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
+              </svg>
+              <h5 class="paragraph-line">We will buy your used car, assist you in buying a new one or help you exchange it</h5>
+              <svg class="checkmark" width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-check-circle-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
+              </svg>
+              <h5 class="paragraph-line">Secure,instant and online payments</h5> 
+              <svg class="checkmark" width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-check-circle-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
+              </svg>
+              <h5 class="paragraph-line">We arrange all the paperwork</h5>
+            </div>
+            <div class="" style="width: 29%;background-color: white;">
+              <form action="#" method="post">
+                 <table>
+                   <tr>
+                     <th><i class="fa fa-car fa-xs icons" aria-hidden="true"></i></th>
+                     <th><i class="fa fa-key icons" aria-hidden="true"></i></th>
+                     <th><i class="fa fa-exchange icons"  aria-hidden="true"></i></th>
+                   </tr>
+                   <tr>
+                     <td><span class="icon-text">Buy</span></td>
+                     <td><span class="icon-text">Sell</span></td>
+                     <td><span class="icon-text-e">Exchange</span></td>  
+                   </tr>
+                   <tr>
+                   <td colspan="3"><hr style="background-color: #096C59;width: 112%;"></td>
+                   </tr>
+                   <tr>
+                     <td colspan="3"><span style="margin-left:25px;"><strong>What’s your car worth?</strong></span></td>
+                   </tr>
+                   <tr>
+                     <td colspan="3"><span style="margin-left:25px;">We will buy your car. Sell to CarFirst instantly,</span></td>
+                   </tr>
+                   <tr>
+                    <td colspan="3"><span style="margin-left:25px;">safely and hassle-free</span></td>
+                  </tr>
+                  <tr>
+                    <td colspan="3"><select name="brand" id="brand" class="scrolls">
+                      <option value="1">Brand</option>
+                      <option value="2">Most Popular Brands</option>
+                      <option value="3">Honda</option>
+                      <option value="4">Toyota</option>
+                      <option value="5">Suzuki</option>
+                      <option value="6">Brands A-Z</option>
+                      <option value="7">Audi</option>
+                      <option value="8">BMW</option>
+                      <option value="9">Changan</option>
+                      <option value="10">Cherry</option>
+                      <option value="11">Chevrolet</option>
+                      <option value="12">Daehen</option>
+                      <option value="13">FAW</option>
+                      <option value="14">FORD</option>
+                      <option value="15">Honda</option>
+                      <option value="16">Hyundai</option>
+                      <option value="17">ISUZU</option>
+                      <option value="18">JAGUAR</option>
+                      <option value="19">KIA</option>
+                      <option value="20">Lexus</option>
+                      <option value="21">Master</option>
+                      <option value="22">Mazda</option>
+                      <option value="23">Subaru</option>
+                      <option value="24">United</option>
+                    </select></td>
+                  </tr>
+                  <tr>
+                    <td colspan="3"><select name="model" id="model" class="disabled">
+                      <option value="25">Model</option>
+                    </select></td>
+                  </tr>
+                  <tr>
+                    <td colspan="3"><select name="year" id="year" class="disabled">
+                      <option value="27">Year</option>
+                    </select></td>
+                  </tr>
+                  <tr>
+                    <td colspan="3"><select name="trim/variant" id="trim/variant" class="disabled">
+                      <option value="26">Trim/Variant</option>
+                    </select></td>
+                  </tr>
+                  <tr>
+                    <td colspan="3"><select name="transmission" id="transmission" class="disabled">
+                      <option value="28">Transmission</option>
+                    </select></td>
+                  </tr>
+                  <tr>
+                    <td colspan="3"><select name="mileage" id="mileage" class="disabled">
+                      <option value="29">Mileage</option>
+                    </select></td>
+                  </tr>
+                  <tr>
+                    <td colspan="3"><select name="registration" id="registration" class="scrolls">
+                      <option value="29">Registration City</option>
+                      <option value="20">Faisalabad</option>
+                      <option value="21">Islamabad</option>
+                      <option value="22">Karachi</option>
+                      <option value="23">Lahore</option>
+                      <option value="24">Rawalpindi</option>
+                    </select></td>
+                  </tr>
+                  <tr>
+                    <td colspan="3"><input type="text" placeholder="+92 Enter your phone number" class="scrolls"></td>
+                  </tr>
+                  <tr>
+                    <td colspan="3"><input type="checkbox" class="chkbox"><span class="text-chk">By clicking on "get a car price"you agree to our</span> <br><b class="letter1">Terms</b> and<b class="letter2">Privacy Policy.</b></span></td>
+                  </tr>
+                 </table>
+                 <button class="btn">Get car price</button>
+                 <br><br>
+              </form>
+            </div>
+        </div>
+   </div>
+</div>
+<!-- Carfirst Offer -->
+<div class="container offer">
+  <h4 class="quote1"><b>What does CarFirst offer?</b></h4>
+  <div class="row">
+      <div class="buy">
+        <span class="c"><i class="fa fa-car fa-lg icons" aria-hidden="true"></i></span>
+        <h5 class="heading">Buy a car</h5>
+       <p class="p">Browse through 1000+ verified cars</p>
+      </div>
+      <div class="key-ex">
+        <span class="c"><i class="fa fa-key fa-lg icons" aria-hidden="true"></i></span>
+        <h5 class="heading">Sell your car</h5>
+       <p class="p">Sell your car instantly and safely within an hour</p>
+      </div>
+      <div class="key-ex">
+        <span class="c"><i class="fa fa-exchange fa-lg icons"  aria-hidden="true"></i></span>
+        <h5 class="heading">Exchange your car</h5>
+       <p class="p">Exchange for a new or used car</p>
+      </div>
+  </div>
+</div>
+<!-- Expectations -->
+<div class="container-fluid" style="background-color: #f2f4f5;">
+  <div class="container" style="height: 720px;">
+       <div class="row">
+                <div class="col-md-6">
+                    <h4 class="heading1"><b>What to expect</b></h4>
+                    <p class="p1">How do we compare with other ways to sell?</p>
+                    <span class="couple-img"><img src="{{url_for('static',filename='images/couple.jpg')}}" alt="couple"></span>
+                </div>
+                <div class="col-md-6">
+                  <svg class="checkmark2" width="1.2em" height="1.2em" viewBox="0 0 16 16" class="bi bi-check-circle-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                      <path fill-rule="evenodd" d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
+                    </svg>
+                    <h5 class="heading2">Fair prices</h5>
+                    <p class="p2">Whether you sell, buy or exchange your <br> car, we can assure market-conform and fair <br> prices.</p>  
+                  <svg class="checkmark3" width="1.2em" height="1.2em" viewBox="0 0 16 16" class="bi bi-check-circle-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
+                  </svg>
+                  <h5 class="heading2">A clear and transparent process</h5>
+                  <p class="p2">We offer a clear and transparent process <br> for all of our clients using any of our <br> services. We will help you in every step on <br> the way.</p>
+                  <svg class="checkmark3" width="1.2em" height="1.2em" viewBox="0 0 16 16" class="bi bi-check-circle-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
+                  </svg>
+                  <h5 class="heading2">Secure and safe transactions</h5>
+                  <p class="p2">Never need to worry anymore about unsafe <br> payments. We got your back with our <br> secure and certified RC transfers.</p>
+                  <svg class="checkmark3" width="1.2em" height="1.2em" viewBox="0 0 16 16" class="bi bi-check-circle-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
+                  </svg>
+                  <h5 class="heading2">We arrange your paperwork</h5>
+                  <p class="p2">Never worry about the hassle of doing <br> paperwork. Just bring the required <br> documents and we will do the rest.</p>
+                </div>
+       </div>
+  </div>
+</div>
+<!-- Customers -->
+<div class="container carfirst">
+  <h4 class="quote1"><b>1000+ happy customers used CarFirst <br> before you</b></h4>
+  <p class="p3">Don't take our word for it! Read our customer's reviews.</p>
+  <div class="row">
+      <div class="customer1">
+        <h6 class="heading3">Muhammad Hassan Rashid / Suzuki Wagon R</h6>
+       <p class="p4">CarFirst bought my car within two <br> hours. It was the most swift <br> transaction and helped me save a lot <br> of time!</p>
+      </div>
+      <div class="customer2">
+        <h6 class="heading3">Huma Gailani / Honda Civic VTI Oriel 2011</h6>
+       <p class="p4">I was trying to sell my car for the last <br> two months. CarFirst gave me the <br> price I was looking for without any <br> hassles.</p>
+      </div>
+      <div class="customer3">
+        <h6 class="heading3">Sajjid Mukhtar / Toyota Corolla GLI 2015</h6>
+       <p class="p4">Loved the car inspection! Within 20 <br> minutes I knew the exact condition of <br> my car and what its worth!</p>
+      </div>
+  </div>
+</div>
+<!-- News -->
+<div class="container-fluid news">
+  <center><table cellpadding="40">
+        <tr>
+          <td><img src="{{url_for('static',filename='images/dawn.jpg')}}" class="img-fluid n1" alt="Dawn"></td>
+          <td><img src="{{url_for('static',filename='images/news.jpg')}}" class="img-fluid n2" alt="News"></td>
+          <td><img src="{{url_for('static',filename='images/tribune.png')}}" class="img-fluid n2" alt="Tribune"></td>
+          <td><img src="{{url_for('static',filename='images/nation.png')}}" class="img-fluid n2" alt="Nation"></td>
+          <td><img src="{{url_for('static',filename='images/geo.jpg')}}" class="img-fluid n3" alt="Geo"></td>
+          <td><img src="{{url_for('static',filename='images/business.png')}}" class="img-fluid n2" alt="Business"></td>
+        </tr>
+   </table></center> 
+   <center><button class="btn-view">View News Room</button></center>
+   <hr style="border-color:#7f9799;">
+</div>
+<!-- Faq & info #002f34-->
+<div class="container-fluid faq">
+          <div class="container">
+                <h5 class="heading4"><b>Any questions?</b></h5>
+                <p class="para1">You'll find the answers to your questions in our <b><u>FAQ</u></b> section.</p>
+                <svg class="phone" width="1.2em" height="1.2em" viewBox="0 0 16 16" class="bi bi-telephone" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd" d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.568 17.568 0 0 0 4.168 6.608 17.569 17.569 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.678.678 0 0 0-.58-.122l-2.19.547a1.745 1.745 0 0 1-1.657-.459L5.482 8.062a1.745 1.745 0 0 1-.46-1.657l.548-2.19a.678.678 0 0 0-.122-.58L3.654 1.328zM1.884.511a1.745 1.745 0 0 1 2.612.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z"/>
+                </svg>
+                <p class="nmbr1">111 111 CAR (227)</p>
+                <svg class="clock" width="1.2em" height="1.2em" viewBox="0 0 16 16" class="bi bi-clock" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm8-7A8 8 0 1 1 0 8a8 8 0 0 1 16 0z"/>
+                  <path fill-rule="evenodd" d="M7.5 3a.5.5 0 0 1 .5.5v5.21l3.248 1.856a.5.5 0 0 1-.496.868l-3.5-2A.5.5 0 0 1 7 9V3.5a.5.5 0 0 1 .5-.5z"/>
+                </svg> 
+                <p class="time">11:30am - 07:30pm</p>
+                <br>
+                <center><hr class="line"></center>
+          </div>
+    
+          <div class="container">
+                <div class="row">
+                        <div class="col-md-6">
+                          <p class="info-list">Contact <br>
+                            Blog <br>
+                            Privacy Policy <br>
+                            FAQs <br>
+                            Required documents <br>
+                            Terms and conditions <br>
+                            About us <br>
+                            Careers</p>
+                        </div>
+                        <div class="col-md-6">
+                          <h5 class="heading5"><b>What do you want to do?</b></h5>
+                          <p class="sentence">Choose from our range of services.</p>
+                          <button class="button">Buy</button>
+                          <button class="button">Buy</button>
+                          <button class="button">Buy</button>
+                        </div>
+                </div>
+                <center><hr class="line"></center>
+          </div>
+          
+          <div class="container">
+            <h6 class="heading6"><b>Popular brands</b></h6>
+            <p class="para2">Daihatsu: Boon / Cuore / Esse / Mira / Move Honda: Accord / City / Civic / N Mitsubishi: EK Nissan: Dayz / Moco Suzuki: Alto / Cultus / Liana / Mehran / Swift / Wagon R Toyota:Aqua /Belta /Camry / Corolla Altis / Corolla Axio / Corolla / Passo / Pixis / Prius / Vitz</p>
+          </div>
+</div>
+<!-- Finally Footer -->
+<div class="container-fluid footer">
+      <div class="row">
+            <div class="col-md-6">
+                <p class="para3">2020 © All rights reserved</p>
+            </div>
+            <div class="col-md-6">
+              <img src="{{url_for('static',filename='images/fb.jpg')}}" class="fb" alt="Facebook">
+              <img src="{{url_for('static',filename='images/ut.png')}}" class="ut" alt="Youtube">
+              <img src="{{url_for('static',filename='images/linkedin.png')}}" class="in" alt="Linkedin">
+              <img src="{{url_for('static',filename='images/insta.jpg')}}" class="insta" alt="Instagram">
+          </div>
+      </div>
+</div>
+</body>
+</html>
+
+  

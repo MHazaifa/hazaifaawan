@@ -5,6 +5,6 @@ W = Flask(__name__)
 def index():
   return render_template('index.html')
 
-W.run()
 
-
+if __name__ == "__main__":
+    W.run(debug=True)
